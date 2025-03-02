@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+html, body {
+    background-color: #212121;
+    color: #e0f1f0;
+    height: 100vh;
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+header h1 {
+    font-family: "Funnel Display", sans-serif;
+    font-size: 4em;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: fit-content;
+    margin: 20px auto 50px;
+}
+
+header h1 img {
+    width: 100px;
+    margin-left: 20px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    gap: 20px;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    border-top-right-radius: 10px; 
+    border-bottom-left-radius: 10px;
+    border: none;
+    background-color: #be2e02;
+    color: #ffffff;
+    font-family: "Funnel Display", sans-serif;
+}
