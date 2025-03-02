@@ -2,6 +2,9 @@ Git Fundamentals - Interactive Website
 ======================================
 
 Welcome to the **Git Fundamentals** interactive website! This project is designed to help usere learn the basics in a fun, engaging, and interactive way.
+<div align="center">
+    <img src="images/git.gif" width="400" />
+</div>
 
 ## Features
 - **Interactive Tuturiols**: Learn key Git commands through interactive examples.
