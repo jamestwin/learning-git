@@ -33,7 +33,7 @@
                 <img src="" alt="">
             </div>
             <div class="card">
-                <h2>git clone &lt;repository_URL&gt;</h2>
+                <h2>git clone;</h2>
                 <p></p>
                 <img src="" alt="">
             </div>
@@ -43,12 +43,12 @@
                 <img src="" alt="">
             </div>
             <div class="card">
-                <h2>git add &lt;file&gt;</h2>
+                <h2>git add</h2>
                 <p></p>
                 <img src="" alt="">
             </div>
             <div class="card">
-                <h2>git commit -m "message"</h2>
+                <h2>git commit</h2>
                 <p></p>
                 <img src="" alt="">
             </div>
@@ -68,12 +68,12 @@
                 <img src="" alt="">
             </div>
             <div class="card">
-                <h2>git checkout &lt;branch&gt;</h2>
+                <h2>git checkout</h2>
                 <p></p>
                 <img src="" alt="">
             </div>
             <div class="card">
-                <h2>git merge &lt;branch&gt;</h2>
+                <h2>git merge</h2>
                 <p></p>
                 <img src="" alt="">
             </div>
@@ -183,5 +183,44 @@
             </div>
         </div>
     </div>
+    <script>
+        let divs = document.querySelectorAll('.card');
+        let container1 = document.getElementById('tab1')
+        divs.forEach(div => {
+            let x = Math.random() * container1.offsetWidth
+            let y = Math.random() * container1.offsetHeight
+            if(x => div.offsetWidth) {
+                x -= div.offsetWidth
+            }
+            if(y => div.offsetHeight) {
+                y -= div.offsetHeight
+            }
+            let dx = 1;  // Change in x
+            let dy = 1;  // Change in y
+            let containerWidth = container1.offsetWidth - div.offsetWidth;
+            let containerHeight = container1.offsetHeight - div.offsetHeight;
+
+            function moveDiv() {
+                x += dx;
+                y += dy;
+
+                // Check for collision with the edges
+                if (x <= 0 || x >= containerWidth) {
+                    dx *= -1;  // Reverse direction
+                }
+                if (y <= 0 || y >= containerHeight) {
+                    dy *= -1;  // Reverse direction
+                }
+
+                div.style.left = x + 'px';
+                div.style.top = y + 'px';
+                
+
+                requestAnimationFrame(moveDiv);  // Continue the animation
+            }
+
+            moveDiv();  // Start the animation for each div
+        });
+    </script>
 </body>
 </html>
