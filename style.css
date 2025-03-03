@@ -31,7 +31,7 @@ header h1 img {
 .tabs {
     display: flex;
     justify-content: center;
-    margin: 20px auto;
+    margin: 20px auto 100px;
     gap: 20px;
 }
 
@@ -43,4 +43,64 @@ header h1 img {
     background-color: #be2e02;
     color: #ffffff;
     font-family: "Funnel Display", sans-serif;
+    font-size: 2em;
+    transition: background-color 0.2s ease-in-out;
+    box-shadow: 5px 5px 2px black;
+}
+
+.card {
+    background-color: #333333;
+    color: #ffffff;
+    height: fit-content;
+    padding: 5px;
+    border-radius: 10px;
+    width: fit-content;
+    position: absolute;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+
+}
+.card h2 {
+    font-family: "Roboto Mono", monospace;
+    font-size: 1.5em;
+}
+
+.card img {
+    display: none;
+}
+.card p {
+    font-family: "Funnel Display", monospace;
+    display: none;
+    opacity: 0;
+}
+
+.tab-button:hover {
+    background-color: #fc5c2b;
+    cursor: pointer;
+}
+
+.tab-button:active {
+    box-shadow: 0px 0px 2px black;
+}
+
+
+.card-container {
+    background-color: aqua;
+    width: 900px;
+    height: 600px;
+    margin: 0px auto;
+}
+
+#tab1 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#tab2, #tab3 {
+    display: none;
+}
+
+#tab2 .card, #tab3 .card {
+    display: none;
 }
