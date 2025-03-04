@@ -44,22 +44,25 @@ header h1 img {
     color: #ffffff;
     font-family: "Funnel Display", sans-serif;
     font-size: 2em;
-    transition: background-color 0.2s ease-in-out;
-    box-shadow: 5px 5px 2px black;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.05s ease-in-out, transform 0.05s ease-in-out;
+    box-shadow: 10px 10px 2px black;
 }
 
 .card {
     background-color: #333333;
     color: #ffffff;
-    height: fit-content;
+    height: 50px;
     padding: 5px;
     border-radius: 10px;
-    width: fit-content;
+    width: 200px;
     position: absolute;
-    /* top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-
+    text-align: center;
+    /* will-change: transform; */
+    transition: width 2s ease-in-out, 
+                height 2s ease-in-out, 
+                opacity 0.2s ease-in-out,
+                top 0.2s ease-in-out,
+                left 0.2s ease-in-out;
 }
 .card h2 {
     font-family: "Roboto Mono", monospace;
@@ -82,14 +85,15 @@ header h1 img {
 
 .tab-button:active {
     box-shadow: 0px 0px 2px black;
+    transform: scale(0.95);
 }
 
 
 .card-container {
-    background-color: aqua;
     width: 900px;
     height: 600px;
     margin: 0px auto;
+    border: solid 5px #be2e02;
 }
 
 #tab1 {
@@ -103,4 +107,9 @@ header h1 img {
 
 #tab2 .card, #tab3 .card {
     display: none;
+}
+
+.card:hover {
+    cursor: pointer;
+    background-color: #fc5c2b;
 }
