@@ -189,18 +189,28 @@
         divs.forEach(div => {
             let x = Math.random() * container1.offsetWidth
             let y = Math.random() * container1.offsetHeight
-            if(x => div.offsetWidth) {
+            if(x > div.offsetWidth) {
                 x -= div.offsetWidth
             }
-            if(y => div.offsetHeight) {
+            if(y > div.offsetHeight) {
                 y -= div.offsetHeight
             }
-            let dx = 1;  // Change in x
-            let dy = 1;  // Change in y
+
+            let dx = 0.5;  // Change in x
+            let dy = 0.5;  // Change in y
+            if (Math.random() < 0.5) {
+                dx *= -1;  // Randomly make the x direction negative
+            }
+            if (Math.random() < 0.5) {
+                dy *= -1;  // Randomly make the x direction negative
+            }
             let containerWidth = container1.offsetWidth - div.offsetWidth;
             let containerHeight = container1.offsetHeight - div.offsetHeight;
 
+            let animationFrameId 
+
             function moveDiv() {
+
                 x += dx;
                 y += dy;
 
@@ -211,15 +221,37 @@
                 if (y <= 0 || y >= containerHeight) {
                     dy *= -1;  // Reverse direction
                 }
-
-                div.style.left = x + 'px';
-                div.style.top = y + 'px';
+                
+                div.style.transform = `translate(${x}px, ${y}px)`;
+                
                 
 
-                requestAnimationFrame(moveDiv);  // Continue the animation
+                animationFrameId = requestAnimationFrame(moveDiv);  // Continue the animation
             }
-
+            
             moveDiv();  // Start the animation for each div
+
+            div.addEventListener('mouseenter', () => {
+                cancelAnimationFrame(animationFrameId);  // Stop the animation
+            });
+
+    // Resume the animation when hover ends
+            div.addEventListener('mouseleave', () => {
+                if (div.style.width === '100%') {
+                    return;
+                }
+                moveDiv();  // Resume the animation
+            });
+
+            div.addEventListener('click', () => {
+                div.style.width = '100%';
+                div.style.height = '100%';
+                div.style.zIndex = '1';
+                div.style.top = `50%`;
+                div.style.left = `50%`;
+                div.style.transform = 'translate(-50%, -50%)';
+                cancelAnimationFrame(animationFrameId);  
+            });
         });
     </script>
 </body>
